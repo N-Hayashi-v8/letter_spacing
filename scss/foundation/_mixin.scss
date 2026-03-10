@@ -1,0 +1,7 @@
+@use "variables" as v;
+
+@mixin mq-up($breakpoint: v.$bp-pc){
+  @media (min-width: $breakpoint){
+    @content;
+  }
+}

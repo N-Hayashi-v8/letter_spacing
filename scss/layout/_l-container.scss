@@ -1,0 +1,6 @@
+@use "../foundation/variables" as v;
+
+.l-container{
+  width: min(100% - 32px, v.$content-max-width);
+  margin-inline: auto;
+}

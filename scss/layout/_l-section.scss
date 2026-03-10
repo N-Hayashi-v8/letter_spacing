@@ -1,0 +1,11 @@
+@use "../foundation/variables" as v;
+@use "../foundation/mixin" as m;
+
+.l-section{
+  padding-block: v.$space-section-sp;
+  border-top: 1px solid v.$color-gray-300;
+
+  @include m.mq-up{
+    padding-block: v.$space-section-pc;
+  }
+}

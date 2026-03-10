@@ -1,0 +1,9 @@
+@use "variables" as v;
+
+body{
+  font-family: v.$font-base;
+  color: v.$color-text;
+  background-color: v.$color-bg;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
