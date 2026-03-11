@@ -1,0 +1,70 @@
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixin" as m;
+
+.p-header{
+    padding-block: 24px 32px;
+    background-color: v.$color-white;
+
+    &__inner{
+        display: grid;
+        gap: 20px;
+    }
+
+    &__bnn,
+    &__sns{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    &__sns-list{
+        display: flex;
+        gap: 8px;
+    }
+
+    &__title{
+        margin: 0;
+    }
+
+    &__title-logo{
+        display: block;
+        width: min(100%, 540px);
+        height: auto;
+    }
+
+    &__nav{
+        display: grid;
+        gap: 12px;
+    }
+
+    &__nav-list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+
+    &__nav-link{
+        color: inherit;
+        text-decoration: none;
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    @include m.mq-up{
+        padding-block: 28px 40px;
+
+        &__inner{
+            grid-template-columns: 1fr auto;
+            column-gap: 24px;
+            row-gap: 24px;
+        }
+
+        &__title,
+        &__nav{
+            grid-column: 1 / 3;
+        }
+    }
+}
