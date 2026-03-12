@@ -21,6 +21,61 @@ body {
   }
 }
 
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  background-color: transparent;
+  font: inherit;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.c-button:hover {
+  opacity: 0.85;
+}
+.c-button:focus-visible {
+  outline: 2px solid #007dd8;
+  outline-offset: 2px;
+}
+.c-button--amazon, .c-button--bnn {
+  min-height: 40px;
+  min-width: 148px;
+  padding-inline: 20px;
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.c-button--amazon {
+  background-image: url("../../../img/logo_amazon.svg");
+  background-size: 84px auto;
+}
+.c-button--bnn {
+  background-image: url("../../../img/logo_bnn.svg");
+  background-size: 60px auto;
+}
+.c-button--ghost {
+  min-height: 36px;
+  padding-inline: 16px;
+  border-color: #000000;
+  background-color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+.c-button--ghost.is-active {
+  background-color: #000000;
+  color: #ffffff;
+}
+@media (min-width: 769px) {
+  .c-button--amazon, .c-button--bnn {
+    min-height: 44px;
+    min-width: 168px;
+  }
+}
+
 .p-page--letter-spacing {
   overflow-x: hidden;
 }
@@ -84,4 +139,14 @@ body {
   .p-header__title, .p-header__nav {
     grid-column: 1/3;
   }
+}
+
+.p-mv {
+  border-top: 0;
+  padding-block: 0;
+}
+.p-mv__image {
+  display: block;
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */

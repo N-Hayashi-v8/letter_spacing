@@ -1,0 +1,67 @@
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixin" as m;
+
+.c-button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 9999px;
+    background-color: transparent;
+    font: inherit;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover{
+        opacity: 0.85;
+    }
+
+    &:focus-visible{
+        outline: 2px solid v.$color-blue;
+        outline-offset: 2px;
+    }
+
+    &--amazon,
+    &--bnn{
+        min-height: 40px;
+        min-width: 148px;
+        padding-inline: 20px;
+        background-color: v.$color-black;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &--amazon{
+        background-image: url("../../../img/logo_amazon.svg");
+        background-size: 84px auto;
+    }
+
+    &--bnn{
+        background-image: url("../../../img/logo_bnn.svg");
+        background-size: 60px auto;
+    }
+
+    &--ghost{
+        min-height: 36px;
+        padding-inline: 16px;
+        border-color: v.$color-black;
+        background-color: v.$color-white;
+        font-size: 14px;
+        font-weight: 500;
+
+        &.is-active{
+            background-color: v.$color-black;
+            color: v.$color-white;
+        }
+    }
+
+    @include m.mq-up{
+        &--amazon,
+        &--bnn{
+            min-height: 44px;
+            min-width: 168px;
+        }
+    }
+}
