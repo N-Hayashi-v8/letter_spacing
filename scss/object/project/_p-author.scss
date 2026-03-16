@@ -1,0 +1,83 @@
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixin" as m;
+
+.p-author{
+    &__inner{
+        display: grid;
+        gap: 24px;
+    }
+
+    &__title{
+        margin: 0;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    &__title-ja{
+        display: block;
+        margin-bottom: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+    }
+
+    &__title-en{
+        display: block;
+    }
+
+    &__list{
+        display: grid;
+        gap: 20px;
+        padding-top: 24px;
+        border-top: 1px solid v.$color-gray-300;
+    }
+
+    &__term{
+        margin: 0;
+        font-weight: 700;
+        line-height: 1.6;
+
+        &--name{
+            font-size: 26px;
+        }
+    }
+
+    &__reading{
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__description{
+        margin: 0;
+        font-size: 15px;
+        line-height: 2;
+    }
+
+    &__twitter-link,
+    &__publisher-link{
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    @include m.mq-up{
+        &__inner{
+            gap: 40px;
+        }
+
+        &__title{
+            font-size: 44px;
+        }
+
+        &__list{
+            grid-template-columns: 260px minmax(0, 1fr);
+            column-gap: 32px;
+            row-gap: 24px;
+            padding-top: 32px;
+        }
+
+        &__term--name{
+            font-size: 32px;
+        }
+    }
+}

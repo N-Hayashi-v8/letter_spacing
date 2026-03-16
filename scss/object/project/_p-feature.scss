@@ -1,0 +1,103 @@
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixin" as m;
+
+.p-feature{
+    &__inner{
+        display: grid;
+        gap: 56px;
+    }
+
+    &__section{
+        display: grid;
+        gap: 24px;
+    }
+
+    &__image,
+    &__illust{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__title{
+        margin: 0;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.4;
+    }
+
+    &__title-label{
+        display: block;
+        margin-bottom: 4px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+    }
+
+    &__subtitle{
+        margin: 12px 0 0;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 1.6;
+    }
+
+    &__text{
+        margin: 12px 0 0;
+        font-size: 15px;
+        line-height: 2;
+    }
+
+    &__illust{
+        max-width: 320px;
+        margin-top: 16px;
+    }
+
+    &__modal{
+        padding: 20px;
+        border: 1px solid v.$color-gray-300;
+        background-color: v.$color-white;
+    }
+
+    &__modal-title{
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    &__cta{
+        display: grid;
+        gap: 12px;
+        justify-items: start;
+    }
+
+    &__button{
+        width: min(100%, 220px);
+    }
+
+    @include m.mq-up{
+        &__inner{
+            gap: 64px;
+        }
+
+        &__section{
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: start;
+            gap: 32px;
+        }
+
+        &__title{
+            font-size: 34px;
+        }
+
+        &__subtitle{
+            font-size: 28px;
+        }
+
+        &__cta{
+            grid-template-columns: repeat(2, auto);
+            gap: 16px;
+        }
+    }
+}

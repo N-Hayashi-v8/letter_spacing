@@ -1,0 +1,18 @@
+@use "../../foundation/mixin" as m;
+
+.c-section-title{
+    &__en{
+        margin: 0;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    @include m.mq-up{
+        &__en{
+            font-size: 40px;
+        }
+    }
+}
