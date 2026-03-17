@@ -2,70 +2,153 @@
 @use "../../foundation/mixin" as m;
 
 .p-index{
+    border-top: 0;
+    padding-top: 160px;
+
     &__inner{
-        display: grid;
-        gap: 32px;
+        width: 100%;
+        max-width: 1440px;
+        margin-inline: auto;
+        padding-inline: 32px;
+        box-sizing: border-box;
     }
 
     &__title{
-        margin: 0;
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 1.3;
+        margin: 0 0 80px;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+        letter-spacing: 0.05em;
     }
 
     &__title-ja{
-        display: block;
-        margin-bottom: 4px;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    &__title-en{
+        margin-left: 12px;
+        color: v.$color-red;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
     }
 
     &__container{
         display: grid;
-        gap: 24px;
-        padding-top: 24px;
-        border-top: 1px solid v.$color-gray-300;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        margin-bottom: 64px;
+    }
+
+    &__container:last-of-type{
+        margin-bottom: 0;
+    }
+
+    &__container > *{
+        min-width: 0;
     }
 
     &__subtitle{
-        margin: 0;
-        font-size: 18px;
+        margin: -2px 0 18px;
+        color: v.$color-red;
+        font-size: 16px;
         font-weight: 700;
-        line-height: 1.5;
+        line-height: 1.25;
+        letter-spacing: 0.05em;
     }
 
     &__list{
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 8px 12px;
-        margin-top: 12px;
+        margin: 0;
+    }
+
+    &__list::after{
+        content: "";
+        display: block;
+        clear: both;
     }
 
     &__list dt{
+        clear: both;
+        float: left;
+        width: 3em;
+        margin: 0 0 10px;
+        color: v.$color-red;
+        font-size: 12px;
+        line-height: 1.25;
         font-weight: 700;
+        letter-spacing: 0.02em;
         white-space: nowrap;
     }
 
     &__list dd{
-        margin: 0;
-        line-height: 1.8;
+        float: left;
+        width: calc(100% - 3em);
+        margin: 0 0 10px;
+        font-size: 12px;
+        line-height: 1.25;
+        font-weight: 500;
+    }
+
+    &__list > :last-child{
+        margin-bottom: 0;
+    }
+
+    &__list dt:last-of-type{
+        width: 6em;
+        font-size: 10px;
+    }
+
+    &__list dt:last-of-type + dd{
+        width: calc(100% - 6em);
     }
 
     @include m.mq-up{
         &__inner{
-            gap: 48px;
-        }
-
-        &__title{
-            font-size: 44px;
+            padding-left: 120px;
+            padding-right: 240px;
         }
 
         &__container{
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 32px;
-            padding-top: 32px;
+            gap: 0 40px;
+        }
+    }
+
+    @media (max-width: 768px){
+        padding-top: 64px;
+
+        &__title{
+            margin-bottom: 40px;
+        }
+
+        &__title-ja{
+            font-size: 20px;
+        }
+
+        &__container{
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px 24px;
+            margin-bottom: 32px;
+        }
+
+        &__subtitle{
+            margin-bottom: 14px;
+            font-size: 12px;
+        }
+
+        &__list dt,
+        &__list dd{
+            font-size: 10px;
+            margin-bottom: 8px;
+        }
+
+        &__list dt:last-of-type{
+            width: 5.5em;
+        }
+
+        &__list dt:last-of-type + dd{
+            width: calc(100% - 5.5em);
         }
     }
 }

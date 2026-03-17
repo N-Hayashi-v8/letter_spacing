@@ -4,6 +4,11 @@ body{
   font-family: v.$font-base;
   color: v.$color-text;
   background-color: v.$color-bg;
+  background-image: linear-gradient(rgba(v.$color-white, 0.32), rgba(v.$color-white, 0.32)), url("../img/bg 1.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center top;
+  background-size: 100% 100%, 100% auto;
+  background-attachment: fixed, fixed;
   line-height: 1.7;
   letter-spacing: 0.02em;
 }

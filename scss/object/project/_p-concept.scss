@@ -2,69 +2,204 @@
 @use "../../foundation/mixin" as m;
 
 .p-concept{
+    border-top: 0;
+    padding-block: 120px 0;
+
     &__inner{
         display: grid;
-        gap: 24px;
+        gap: 40px;
+        width: 100%;
+        padding-inline: 32px;
+        box-sizing: border-box;
     }
 
-    &__head{
+    &__left{
         display: grid;
-        gap: 16px;
+        align-content: start;
+    }
+
+    &__en{
+        margin: 0 0 34px;
+        color: v.$color-red;
+        font-size: 10px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0.05em;
     }
 
     &__mode{
         display: inline-flex;
-        gap: 8px;
+        gap: 0;
+        margin: -12px 0 52px -12px;
     }
 
-    &__visual{
-        padding: 24px;
-        background-color: v.$color-gray-100;
+    &__mode-btn{
+        position: relative;
+        border: 0;
+        background-color: transparent;
+        color: v.$color-black;
+        font-size: 12px;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        opacity: 0.25;
+        padding: 12px;
+
+        &::after{
+            content: "";
+            position: absolute;
+            left: 12px;
+            bottom: 0;
+            width: calc(100% - 24px);
+            height: 1px;
+            background-color: v.$color-black;
+            transform: scaleX(0);
+            transform-origin: right center;
+            transition: transform 0.25s ease;
+        }
+
+        &.is-active{
+            opacity: 1;
+        }
+
+        &.is-active::after{
+            transform: scaleX(1);
+            transform-origin: left center;
+        }
     }
 
     &__visual-text{
         margin: 0;
-        font-size: 28px;
+        font-size: clamp(44px, 5.2vw, 88px);
         font-weight: 700;
-        line-height: 1.4;
-        letter-spacing: 0.08em;
+        line-height: 1.08;
+    }
+
+    &__illust{
+        margin-top: 52px;
+        width: min(100%, 700px);
+    }
+
+    &__illust-image{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    &__body{
+        align-self: start;
+        margin-top: 0;
     }
 
     &__copy{
-        margin: 0 0 16px;
-        font-size: 24px;
+        margin: 0 0 28px;
+        font-size: clamp(24px, 1.55vw, 30px);
         font-weight: 700;
-        line-height: 1.5;
+        line-height: 1.45;
+        letter-spacing: 0.02em;
     }
 
     &__text{
         margin: 0;
-        font-size: 15px;
-        line-height: 2;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 2.1;
+        letter-spacing: 0.02em;
+    }
+
+    &.is-spacing-before .p-concept__visual-text{
+        letter-spacing: 0.08em;
+    }
+
+    &[data-spacing-mode="before"] .p-concept__visual-text{
+        letter-spacing: 0.08em;
+    }
+
+    &.is-spacing-after .p-concept__visual-text{
+        letter-spacing: -0.02em;
+    }
+
+    &[data-spacing-mode="after"] .p-concept__visual-text{
+        letter-spacing: -0.02em;
     }
 
     @include m.mq-up{
         &__inner{
-            gap: 40px;
+            display: flex;
+            max-width: 1440px;
+            margin-inline: auto;
+            padding-left: 120px;
+            padding-right: 240px;
         }
 
-        &__head{
-            grid-template-columns: 1fr auto;
-            row-gap: 20px;
-            align-items: end;
+        &__left{
+            width: 50%;
         }
 
-        &__visual{
-            grid-column: 1 / 3;
-            padding: 48px 56px;
+        &__body{
+            width: 50%;
+            margin-top: 160px;
+            padding-left: 96px;
+            box-sizing: border-box;
+        }
+
+        &__illust{
+            width: calc(100% + 120px + 8px);
+            margin-left: -128px;
+        }
+    }
+
+    @media (max-width: 768px){
+        padding-block: 64px 0;
+
+        &__en{
+            margin-bottom: 26px;
         }
 
         &__visual-text{
-            font-size: 44px;
+            font-size: clamp(36px, 12vw, 56px);
+        }
+
+        &__mode{
+            margin: -8px 0 40px -8px;
+        }
+
+        &__mode-btn{
+            font-size: 11px;
+            padding: 8px;
+        }
+
+        &__mode-btn::after{
+            left: 8px;
+            width: calc(100% - 16px);
+        }
+
+        &__illust{
+            margin-top: 28px;
+            width: calc(100% + 64px);
+            margin-left: -32px;
+            overflow: hidden;
+        }
+
+        &__illust-image{
+            width: calc(100% - 32px + 8px);
+            position: relative;
+            right: -32px;
+        }
+
+        &__body{
+            margin-top: 64px;
         }
 
         &__copy{
-            font-size: 30px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            line-height: 1.5;
+        }
+
+        &__text{
+            font-size: 14px;
+            line-height: 2.1;
         }
     }
 }

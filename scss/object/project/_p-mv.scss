@@ -1,6 +1,11 @@
 .p-mv{
     border-top: 0;
     padding-block: 0;
+
+    &__inner{
+        width: 100%;
+    }
+
     &__image{
         display: block;
         width: 100%;

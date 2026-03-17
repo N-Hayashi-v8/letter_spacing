@@ -2,54 +2,91 @@
 @use "../../foundation/mixin" as m;
 
 .p-feature{
+    border-top: 0;
+    padding-top: 200px;
+
     &__inner{
         display: grid;
-        gap: 56px;
+        gap: 80px;
+        width: 100%;
+        max-width: 1440px;
+        margin-inline: auto;
+        padding-inline: 32px;
+        box-sizing: border-box;
     }
 
     &__section{
+        position: relative;
         display: grid;
-        gap: 24px;
+        gap: 32px;
     }
 
-    &__image,
-    &__illust{
+    &__left{
+        position: relative;
+    }
+
+    &__left::after{
+        content: "";
+        width: 56px;
+        height: 56px;
+        background-color: v.$color-red;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    &__image{
         display: block;
         width: 100%;
         height: auto;
     }
 
+    &__right{
+        display: grid;
+        align-content: start;
+    }
+
     &__title{
-        margin: 0;
-        font-size: 28px;
+        margin: 0 0 32px;
+        color: v.$color-red;
+        font-size: 16px;
         font-weight: 700;
-        line-height: 1.4;
+        line-height: 1.5;
+        letter-spacing: 0.025em;
     }
 
     &__title-label{
-        display: block;
-        margin-bottom: 4px;
+        color: v.$color-white;
         font-size: 14px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
+        padding: 7px 8px 4px;
+        border-radius: 4px;
+        background-color: v.$color-red;
+        display: inline-block;
+        margin-right: 12px;
+        position: relative;
+        top: -1px;
     }
 
     &__subtitle{
-        margin: 12px 0 0;
-        font-size: 22px;
+        margin: 0 0 33px;
+        font-size: 27px;
         font-weight: 700;
-        line-height: 1.6;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
     }
 
     &__text{
-        margin: 12px 0 0;
-        font-size: 15px;
+        margin: 0;
+        font-size: 14px;
         line-height: 2;
     }
 
     &__illust{
-        max-width: 320px;
-        margin-top: 16px;
+        display: block;
+        width: min(100%, 315px);
+        height: auto;
+        margin-top: 57px;
+        margin-left: auto;
     }
 
     &__modal{
@@ -77,27 +114,81 @@
     }
 
     @include m.mq-up{
-        &__inner{
-            gap: 64px;
+        &__inner {
+            padding-left: 120px;
+            padding-right: 240px;
         }
 
         &__section{
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            display: flex;
             align-items: start;
-            gap: 32px;
         }
 
-        &__title{
-            font-size: 34px;
+        &__section + &__section{
+            margin-top: 80px;
         }
 
-        &__subtitle{
-            font-size: 28px;
+        &__left{
+            width: calc(50% + 164px);
+            margin-left: -120px;
+        }
+
+        &__right{
+            width: calc(50% - 64px);
+            padding: 48px 0 0 80px;
+            box-sizing: border-box;
         }
 
         &__cta{
             grid-template-columns: repeat(2, auto);
             gap: 16px;
+        }
+    }
+
+    @media (max-width: 768px){
+        padding-top: 64px;
+
+        &__inner{
+            gap: 56px;
+        }
+
+        &__left{
+            width: calc(100% + 32px);
+            margin-left: -32px;
+        }
+
+        &__left::after{
+            width: 32px;
+            height: 32px;
+        }
+
+        &__title{
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        &__title-label{
+            font-size: 12px;
+            padding: 6px 6px 3px;
+            margin-right: 8px;
+        }
+
+        &__subtitle{
+            font-size: 20px;
+            margin-bottom: 23px;
+        }
+
+        &__text{
+            font-size: 12px;
+        }
+
+        &__illust{
+            width: min(100%, 260px);
+            margin-top: 36px;
+        }
+
+        &__modal-title{
+            font-size: 18px;
         }
     }
 }

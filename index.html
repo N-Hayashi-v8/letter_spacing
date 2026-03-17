@@ -13,7 +13,7 @@
 
   <body class="p-page p-page--letter-spacing">
     <header class="l-section p-header" id="top">
-      <div class="l-container p-header__inner">
+      <div class="p-header__inner">
         <div class="p-header__bnn">
           <img class="p-header__bnn-logo" src="img/logo_bnn.svg" alt="">
           <span class="p-header__isbn">ISBN：978-4-8025-1209-1</span>
@@ -22,9 +22,9 @@
         <div class="p-header__sns">
           <span class="p-header__sns-label">SNSでシェアする</span>
           <div class="p-header__sns-list">
-            <a class="p-header__sns-link" href="#"><img class="p-header__sns-icon" src="" alt="Twitter"></a>
-            <a class="p-header__sns-link" href="#"><img class="p-header__sns-icon" src="" alt="Facebook"></a>
-            <a class="p-header__sns-link" href="#"><img class="p-header__sns-icon" src="" alt="LINE"></a>
+            <a class="p-header__sns-link" href="#" aria-label="Twitterでシェア"><img class="p-header__sns-icon" src="img/twitter 1.png" alt=""></a>
+            <a class="p-header__sns-link" href="#" aria-label="Facebookでシェア"><img class="p-header__sns-icon" src="img/facebook 1.png" alt=""></a>
+            <a class="p-header__sns-link" href="#" aria-label="LINEでシェア"><img class="p-header__sns-icon" src="img/Line_vector.png" alt=""></a>
           </div>
         </div>
 
@@ -33,8 +33,16 @@
         </h1>
 
         <nav class="p-header__nav" aria-label="ページ内ナビゲーション">
-          <button class="c-button c-button--amazon p-header__store-button" type="button" aria-label="Amazonで購入"></button>
-          <button class="c-button c-button--bnn p-header__store-button" type="button" aria-label="BNNで購入"></button>
+          <div class="p-header__store-group">
+            <a class="c-button p-header__store-button" href="#" aria-label="Amazonで購入">
+              <span class="p-header__store-button-label">Amazonで購入</span>
+              <span class="p-header__store-button-icon" aria-hidden="true"></span>
+            </a>
+            <a class="c-button p-header__store-button" href="#" aria-label="BNNで購入">
+              <span class="p-header__store-button-label">BNNで購入</span>
+              <span class="p-header__store-button-icon" aria-hidden="true"></span>
+            </a>
+          </div>
           <ul class="p-header__nav-list">
             <li class="p-header__nav-item"><a class="p-header__nav-link" href="#concept">コンセプト</a></li>
             <li class="p-header__nav-item"><a class="p-header__nav-link" href="#feature">本書の特徴</a></li>
@@ -49,29 +57,30 @@
     <main>
 
       <section class="l-section p-mv" id="mv">
-        <div class="l-container p-mv__inner">
+        <div class="p-mv__inner">
           <img class="p-mv__image" src="img/img_visual.jpg" alt="">
         </div>
       </section>
 
-      <section class="l-section p-concept" id="concept">
-        <div class="l-container p-concept__inner">
-          <div class="p-concept__head">
-            <div class="c-section-title">
-              <h2 class="c-section-title__en">Concept</h2>
-            </div>
-            <div class="p-concept__mode" role="group" aria-label="文字間表示切り替え">
-              <button class="c-button c-button--ghost" type="button">Before</button>
-              <button class="c-button c-button--ghost is-active" type="button">After</button>
-            </div>
+      <section class="l-section p-concept is-spacing-before" id="concept">
+        <div class="p-concept__inner">
+          <div class="p-concept__left">
+            <p class="p-concept__en">Concept</p>
             <div class="p-concept__visual">
               <p class="p-concept__visual-text">
                 文字間ひとつで、<br>
                 ここまで変わる。
               </p>
             </div>
+            <div class="p-concept__mode" role="group" aria-label="文字間表示切り替え">
+              <button class="p-concept__mode-btn is-active" type="button" data-spacing-mode="before" aria-pressed="true">Before</button>
+              <button class="p-concept__mode-btn" type="button" data-spacing-mode="after" aria-pressed="false">After</button>
+            </div>
+            <div class="p-concept__illust">
+              <img class="p-concept__illust-image" src="img/concept.png" alt="">
+            </div>
           </div>
-          <div class="c-card p-concept__body">
+          <div class="p-concept__body">
             <h3 class="p-concept__copy">文字間調整の感覚を鍛える教科書。</h3>
             <p class="p-concept__text">デザインの品質を大きく左右するにも関わらず、正解がなく、デザイナーを悩ませる「レタースペーシング（文字間調整・文字詰め）」。今まで感覚的に語られてきたレタースペーシングを、図と言葉と事例を用いて丁寧に解説した文字間調整の教科書。これからデザインを学ぶ学生の方や、自分のスペーシングを見直したいデザイナーの方に必須の一冊です。</p>
           </div>
@@ -79,7 +88,7 @@
       </section>
 
       <section class="l-section p-feature" id="feature">
-        <div class="l-container p-feature__inner">
+        <div class="p-feature__inner">
           <div class="p-feature__section">
             <div class="p-feature__left">
               <img class="p-feature__image" src="img/img_feature_01 1.png" alt="">
@@ -118,6 +127,7 @@
                 有名なロゴタイプの考察と<br>
                 スペーシング練習問題
               </h3>
+              <p class="p-feature__text">有名なロゴタイプのスペーシングを考察します。最後に練習問題を体験し、これまでに本書で学んだ知識を実践で振り返ります。</p>
               <img class="p-feature__illust" src="img/img_feature_illust_03 1.png" alt="">
             </div>
           </div>
@@ -135,8 +145,8 @@
       </section>
 
       <section class="l-section p-index" id="index">
-        <div class="l-container p-index__inner">
-          <h2 class="p-index__title"><span class="p-index__title-ja">目次</span>Index</h2>
+        <div class="p-index__inner">
+          <h2 class="p-index__title"><span class="p-index__title-ja">目次</span><span class="p-index__title-en">Index</span></h2>
           <div class="p-index__container">
             <div class="p-index__left">
               <h3 class="p-index__subtitle">第1章 レタースペースとは何か？</h3>
@@ -262,7 +272,7 @@
                 <dd>既存フォントの観察</dd>
                 <dt>6-4</dt>
                 <dd>ワードスペースの影響</dd>
-                <dt>3-5</dt>
+                <dt>6-5</dt>
                 <dd>トラッキング時の注意点</dd>
                 <dt>6-6</dt>
                 <dd>文字の比率調整による効果</dd>
@@ -296,18 +306,18 @@
               </dl>
             </div>
             <div class="p-index__middle">
-              <h3 class="p-index__subtitle">第8章 和文のスペーシング</h3>
+              <h3 class="p-index__subtitle">第8章 スペーシングの練習問題集</h3>
               <dl class="p-index__list">
                 <dt>8-1</dt>
-                <dd>ひらがな活字の特徴</dd>
+                <dd>図形のスペーシングに挑戦</dd>
                 <dt>8-2</dt>
-                <dd>縦組みと横組みのひらがな</dd>
+                <dd>欧文のスペーシングに挑戦</dd>
                 <dt>8-3</dt>
-                <dd>和文を読むときの感覚</dd>
+                <dd>和文のスペーシングに挑戦</dd>
                 <dt>8-4</dt>
-                <dd>和文特有の文字の高さ</dd>
+                <dd>和欧混植のスペーシングに挑戦</dd>
                 <dt>Column 08</dt>
-                <dd>括弧のスペーシング</dd>
+                <dd>便利なことはこわいこと</dd>
               </dl>
             </div>
           </div>
