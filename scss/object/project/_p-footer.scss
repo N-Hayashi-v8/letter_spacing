@@ -1,0 +1,76 @@
+@use "../../foundation/variables" as v;
+@use "../../foundation/mixin" as m;
+
+.p-footer{
+    background-color: v.$color-gray-100;
+
+    &__inner{
+        display: grid;
+        gap: 20px;
+    }
+
+    &__brand{
+        display: grid;
+        gap: 8px;
+    }
+
+    &__brand-logo{
+        display: block;
+        width: 96px;
+        height: auto;
+    }
+
+    &__copyright{
+        margin: 0;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    &__sns{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px 12px;
+    }
+
+    &__sns-label,
+    &__contact-label{
+        margin: 0;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    &__sns-icon{
+        display: block;
+        width: 20px;
+        height: auto;
+    }
+
+    &__contact{
+        display: grid;
+        gap: 6px;
+    }
+
+    &__contact-link{
+        color: inherit;
+        text-decoration: underline;
+        word-break: break-all;
+    }
+
+    @include m.mq-up{
+        &__inner{
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            column-gap: 24px;
+        }
+
+        &__sns{
+            justify-content: center;
+        }
+
+        &__contact{
+            justify-items: end;
+            text-align: right;
+        }
+    }
+}
