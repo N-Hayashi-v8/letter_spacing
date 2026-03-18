@@ -2,42 +2,72 @@
 @use "../../foundation/mixin" as m;
 
 .p-footer{
-    background-color: v.$color-gray-100;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-top: 0;
+    padding-block: 48px 40px;
+    background-color: v.$color-white;
+
+    &::after{
+        content: "";
+        position: absolute;
+        right: 40px;
+        bottom: 0;
+        width: 148px;
+        height: 166px;
+        background: url("../img/img_footer 1.png") no-repeat center / contain;
+        pointer-events: none;
+    }
 
     &__inner{
+        position: relative;
+        z-index: 1;
         display: grid;
-        gap: 20px;
+        gap: 24px;
     }
 
     &__brand{
         display: grid;
-        gap: 8px;
+        gap: 10px;
     }
 
     &__brand-logo{
         display: block;
-        width: 96px;
+        width: 40px;
         height: auto;
     }
 
     &__copyright{
         margin: 0;
-        font-size: 12px;
+        font-size: 10px;
+        font-weight: 500;
         line-height: 1.5;
     }
 
     &__sns{
         display: flex;
-        align-items: center;
         flex-wrap: wrap;
-        gap: 8px 12px;
+        gap: 12px 14px;
+        align-items: center;
     }
 
     &__sns-label,
     &__contact-label{
         margin: 0;
         font-size: 13px;
-        font-weight: 500;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    &__sns-label{
+        flex-basis: 100%;
+        white-space: nowrap;
+    }
+
+    &__sns-link{
+        display: block;
+        line-height: 0;
     }
 
     &__sns-icon{
@@ -48,29 +78,70 @@
 
     &__contact{
         display: grid;
-        gap: 6px;
+        gap: 8px;
     }
 
     &__contact-link{
         color: inherit;
-        text-decoration: underline;
-        word-break: break-all;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        text-decoration: none;
+        word-break: normal;
+        overflow-wrap: normal;
     }
 
     @include m.mq-up{
+        padding-block: 72px 68px;
+
         &__inner{
-            grid-template-columns: auto 1fr auto;
-            align-items: center;
-            column-gap: 24px;
+            grid-template-columns: 240px 1fr minmax(0, 1fr);
+            align-items: start;
+            column-gap: 64px;
+            padding-right: 220px;
+        }
+
+        &__brand{
+            gap: 18px;
         }
 
         &__sns{
-            justify-content: center;
+            justify-self: center;
+            gap: 14px 16px;
         }
 
         &__contact{
-            justify-items: end;
-            text-align: right;
+            justify-items: start;
+            text-align: left;
+        }
+
+        &__contact-link{
+            font-size: 14px;
+            white-space: nowrap;
+        }
+    }
+
+    @media (max-width: 768px){
+        padding-block: 40px;
+
+        &::after{
+            content: none;
+        }
+
+        &__inner{
+            gap: 20px;
+        }
+
+        &__sns{
+            gap: 12px;
+        }
+
+        &__sns-icon{
+            width: 18px;
+        }
+
+        &__contact-link{
+            font-size: 14px;
         }
     }
 }
