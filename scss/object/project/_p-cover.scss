@@ -1,27 +1,31 @@
 @use "../../foundation/variables" as v;
-@use "../../foundation/mixin" as m;
 
 .p-cover{
     position: relative;
     z-index: 2;
     border-top: 0;
-    padding-block: 40px;
+    padding-block: 0;
     background-color: v.$color-red;
     color: v.$color-white;
 
     &__inner{
         display: grid;
-        gap: 24px;
+        grid-template-columns: 320px minmax(0, 1fr) 272px;
+        gap: 0 64px;
+        align-items: center;
         width: 100%;
         max-width: 1440px;
         margin-inline: auto;
-        padding-inline: 32px;
+        padding-left: 120px;
+        padding-right: 120px;
         box-sizing: border-box;
     }
 
     &__image-wrap{
+        grid-row: 1 / 3;
         width: min(100%, 320px);
-        margin-inline: auto;
+        margin: -24px 0 -24px;
+        justify-self: start;
     }
 
     &__image{
@@ -32,7 +36,11 @@
 
     &__meta{
         display: grid;
+        grid-row: 1 / 3;
+        align-self: stretch;
+        align-content: center;
         gap: 20px;
+        max-width: 430px;
     }
 
     &__logo{
@@ -50,18 +58,21 @@
 
     &__cta{
         display: grid;
+        grid-row: 1 / 3;
+        align-self: stretch;
+        align-content: center;
         gap: 16px;
-        justify-items: start;
+        justify-items: stretch;
     }
 
     &__button{
         display: inline-flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 12px;
-        width: min(100%, 272px);
+        width: 100%;
         min-height: 72px;
-        padding-inline: 20px;
+        padding-inline: 26px;
         border-radius: 8px;
         background-image: none;
         color: v.$color-white;
@@ -79,9 +90,9 @@
 
     &__button::after{
         content: attr(aria-label);
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 700;
-        line-height: 1;
+        line-height: 1.2;
         white-space: nowrap;
     }
 
@@ -97,55 +108,35 @@
         background-image: url("../img/logo_bnn.svg");
     }
 
-    @include m.mq-up{
-        padding-block: 0;
-
-        &__inner{
-            grid-template-columns: 320px minmax(0, 1fr) 272px;
-            gap: 0 64px;
-            align-items: center;
-            padding-left: 120px;
-            padding-right: 120px;
-        }
-
-        &__image-wrap{
-            grid-row: 1 / 3;
-            margin: -24px 0 -24px;
-            justify-self: start;
-        }
-
-        &__meta{
-            grid-row: 1 / 3;
-            align-self: stretch;
-            align-content: center;
-            max-width: 430px;
-        }
-
-        &__cta{
-            grid-row: 1 / 3;
-            align-self: stretch;
-            align-content: center;
-            gap: 16px;
-            justify-items: stretch;
-        }
-
-        &__button{
-            width: 100%;
-            justify-content: flex-start;
-            padding-inline: 26px;
-        }
-
-        &__button::after{
-            font-size: 16px;
-            line-height: 1.2;
-        }
-    }
-
     @media (max-width: 768px){
         padding-block: 32px;
 
+        &__inner{
+            grid-template-columns: minmax(0, 1fr);
+            gap: 24px;
+            align-items: stretch;
+            padding-inline: 32px;
+        }
+
         &__image-wrap{
+            grid-row: auto;
             width: min(100%, 280px);
+            margin: 0 auto;
+            justify-self: auto;
+        }
+
+        &__meta{
+            grid-row: auto;
+            align-self: auto;
+            align-content: stretch;
+            max-width: none;
+        }
+
+        &__cta{
+            grid-row: auto;
+            align-self: auto;
+            align-content: stretch;
+            justify-items: start;
         }
 
         &__logo{

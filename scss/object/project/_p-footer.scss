@@ -1,12 +1,11 @@
 @use "../../foundation/variables" as v;
-@use "../../foundation/mixin" as m;
 
 .p-footer{
     position: relative;
     z-index: 1;
     overflow: hidden;
     border-top: 0;
-    padding-block: 48px 40px;
+    padding-block: 72px 68px;
     background-color: v.$color-white;
 
     &::after{
@@ -24,12 +23,15 @@
         position: relative;
         z-index: 1;
         display: grid;
-        gap: 24px;
+        grid-template-columns: 240px 1fr minmax(0, 1fr);
+        align-items: start;
+        gap: 24px 64px;
+        padding-right: 220px;
     }
 
     &__brand{
         display: grid;
-        gap: 10px;
+        gap: 18px;
     }
 
     &__brand-logo{
@@ -48,8 +50,9 @@
     &__sns{
         display: flex;
         flex-wrap: wrap;
-        gap: 12px 14px;
+        gap: 14px 16px;
         align-items: center;
+        justify-self: center;
     }
 
     &__sns-label,
@@ -79,6 +82,8 @@
     &__contact{
         display: grid;
         gap: 8px;
+        justify-items: start;
+        text-align: left;
     }
 
     &__contact-link{
@@ -89,36 +94,7 @@
         text-decoration: none;
         word-break: normal;
         overflow-wrap: normal;
-    }
-
-    @include m.mq-up{
-        padding-block: 72px 68px;
-
-        &__inner{
-            grid-template-columns: 240px 1fr minmax(0, 1fr);
-            align-items: start;
-            column-gap: 64px;
-            padding-right: 220px;
-        }
-
-        &__brand{
-            gap: 18px;
-        }
-
-        &__sns{
-            justify-self: center;
-            gap: 14px 16px;
-        }
-
-        &__contact{
-            justify-items: start;
-            text-align: left;
-        }
-
-        &__contact-link{
-            font-size: 14px;
-            white-space: nowrap;
-        }
+        white-space: nowrap;
     }
 
     @media (max-width: 768px){
@@ -129,11 +105,18 @@
         }
 
         &__inner{
+            grid-template-columns: minmax(0, 1fr);
             gap: 20px;
+            padding-right: 0;
+        }
+
+        &__brand{
+            gap: 10px;
         }
 
         &__sns{
             gap: 12px;
+            justify-self: auto;
         }
 
         &__sns-icon{
@@ -142,6 +125,7 @@
 
         &__contact-link{
             font-size: 14px;
+            white-space: normal;
         }
     }
 }

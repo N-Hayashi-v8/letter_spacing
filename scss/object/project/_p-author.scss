@@ -1,22 +1,21 @@
 @use "../../foundation/variables" as v;
-@use "../../foundation/mixin" as m;
 
 .p-author{
     &__inner{
         display: grid;
-        gap: 24px;
-        padding: 24px 20px;
+        gap: 0;
+        padding: 44px 48px 40px;
         border: 1px solid v.$color-gray-300;
         box-sizing: border-box;
         background-color: v.$color-white;
     }
 
     &__title{
-        margin: 0 0 8px;
+        margin: 0 0 56px;
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
-        gap: 8px 12px;
+        gap: 10px 18px;
         line-height: 1;
         letter-spacing: 0.05em;
     }
@@ -38,13 +37,16 @@
     &__list{
         margin: 0;
         display: grid;
-        gap: 16px;
+        grid-template-columns: 200px minmax(0, 1fr);
+        column-gap: 40px;
+        row-gap: 24px;
     }
 
     &__term{
         margin: 0;
+        font-size: 38px;
         font-weight: 700;
-        line-height: 1.45;
+        line-height: 1.35;
         letter-spacing: 0.04em;
 
         &--name{
@@ -58,7 +60,7 @@
 
     &__reading{
         display: block;
-        margin-top: 4px;
+        margin-top: 5px;
         font-size: 12px;
         font-weight: 700;
         letter-spacing: 0.03em;
@@ -68,7 +70,7 @@
         margin: 0;
         font-size: 14px;
         font-weight: 700;
-        line-height: 1.95;
+        line-height: 1.9;
         letter-spacing: 0.02em;
     }
 
@@ -78,54 +80,44 @@
         text-decoration: none;
     }
 
-    @include m.mq-up{
+    &__term--publisher,
+    &__description--publisher{
+        align-self: center;
+    }
+
+    @media (max-width: 768px){
         &__inner{
-            gap: 0;
-            padding: 44px 48px 40px;
+            gap: 24px;
+            padding: 24px 20px;
         }
 
         &__title{
-            margin-bottom: 56px;
-            gap: 10px 18px;
-        }
-
-        &__title-ja{
-            font-size: 24px;
-        }
-
-        &__title-en{
-            font-size: 10px;
+            margin-bottom: 8px;
+            gap: 8px 12px;
         }
 
         &__list{
-            grid-template-columns: 200px minmax(0, 1fr);
-            column-gap: 40px;
-            row-gap: 24px;
+            grid-template-columns: minmax(0, 1fr);
+            column-gap: 0;
+            row-gap: 16px;
         }
 
         &__term{
-            font-size: 38px;
-            line-height: 1.35;
-        }
-
-        &__term--name,
-        &__term--publisher{
             font-size: 20px;
+            line-height: 1.45;
         }
 
         &__reading{
-            margin-top: 5px;
-            font-size: 12px;
+            margin-top: 4px;
         }
 
         &__description{
-            font-size: 14px;
-            line-height: 1.9;
+            line-height: 1.95;
         }
 
         &__term--publisher,
         &__description--publisher{
-            align-self: center;
+            align-self: auto;
         }
     }
 }

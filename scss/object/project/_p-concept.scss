@@ -1,21 +1,24 @@
 @use "../../foundation/variables" as v;
-@use "../../foundation/mixin" as m;
 
 .p-concept{
     border-top: 0;
     padding-block: 120px 0;
 
     &__inner{
-        display: grid;
+        display: flex;
         gap: 40px;
         width: 100%;
-        padding-inline: 32px;
+        max-width: 1440px;
+        margin-inline: auto;
+        padding-left: 120px;
+        padding-right: 240px;
         box-sizing: border-box;
     }
 
     &__left{
         display: grid;
         align-content: start;
+        width: 50%;
     }
 
     &__en{
@@ -30,7 +33,7 @@
     &__mode{
         display: inline-flex;
         gap: 0;
-        margin: -12px 0 52px -12px;
+        margin: 0 0 40px -12px;
     }
 
     &__mode-btn{
@@ -70,14 +73,16 @@
 
     &__visual-text{
         margin: 0;
-        font-size: clamp(44px, 5.2vw, 88px);
+        font-size: 56px;
         font-weight: 700;
-        line-height: 1.08;
+        line-height: 1.5;
+        cursor: default;
     }
 
     &__illust{
         margin-top: 52px;
-        width: min(100%, 700px);
+        width: calc(100% + 120px + 8px);
+        margin-left: -128px;
     }
 
     &__illust-image{
@@ -87,13 +92,16 @@
     }
 
     &__body{
+        width: 50%;
         align-self: start;
-        margin-top: 0;
+        margin-top: 160px;
+        padding-left: 96px;
+        box-sizing: border-box;
     }
 
     &__copy{
         margin: 0 0 28px;
-        font-size: clamp(24px, 1.55vw, 30px);
+        font-size: 21px;
         font-weight: 700;
         line-height: 1.45;
         letter-spacing: 0.02em;
@@ -123,34 +131,19 @@
         letter-spacing: -0.02em;
     }
 
-    @include m.mq-up{
+    @media (max-width: 768px){
+        padding-block: 64px 0;
+
         &__inner{
-            display: flex;
-            max-width: 1440px;
-            margin-inline: auto;
-            padding-left: 120px;
-            padding-right: 240px;
+            display: grid;
+            max-width: none;
+            margin-inline: 0;
+            padding-inline: 32px;
         }
 
         &__left{
-            width: 50%;
+            width: auto;
         }
-
-        &__body{
-            width: 50%;
-            margin-top: 160px;
-            padding-left: 96px;
-            box-sizing: border-box;
-        }
-
-        &__illust{
-            width: calc(100% + 120px + 8px);
-            margin-left: -128px;
-        }
-    }
-
-    @media (max-width: 768px){
-        padding-block: 64px 0;
 
         &__en{
             margin-bottom: 26px;
@@ -161,7 +154,7 @@
         }
 
         &__mode{
-            margin: -8px 0 40px -8px;
+            margin: 0 0 32px -8px;
         }
 
         &__mode-btn{
@@ -188,7 +181,9 @@
         }
 
         &__body{
+            width: auto;
             margin-top: 64px;
+            padding-left: 0;
         }
 
         &__copy{

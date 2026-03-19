@@ -1,13 +1,15 @@
 @use "../../foundation/variables" as v;
-@use "../../foundation/mixin" as m;
 
 .p-header{
-    padding-block: 24px 40px;
+    padding-block: 28px 44px;
     background-color: v.$color-white;
 
     &__inner{
         display: grid;
-        gap: 20px;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: start;
+        gap: 24px 52px;
+        min-height: 230px;
         width: 100%;
         padding-inline: clamp(16px, 3vw, 40px);
     }
@@ -20,6 +22,8 @@
         font-size: 10px;
         line-height: 1.4;
         white-space: nowrap;
+        grid-column: 1;
+        grid-row: 1;
     }
 
     &__bnn-logo{
@@ -39,6 +43,8 @@
         gap: 6px;
         font-size: 10px;
         line-height: 1.4;
+        grid-column: 1;
+        grid-row: 2;
     }
 
     &__sns-label{
@@ -70,35 +76,43 @@
 
     &__title{
         margin: 0;
+        grid-column: 1 / -1;
+        grid-row: 1 / 3;
+        justify-self: center;
+        align-self: center;
+        margin-top: 0;
     }
 
     &__title-logo{
         display: block;
-        width: min(100%, 420px);
+        width: min(100%, 520px);
         height: auto;
     }
 
     &__nav{
         display: grid;
-        gap: 28px;
-        justify-items: start;
-        z-index: 1000;
+        position: fixed;
+        top: 56px;
+        right: 56px;
+        gap: 30px;
+        justify-items: end;
+        z-index: 100;
     }
 
     &__store-group{
         display: grid;
-        gap: 6px;
+        gap: 8px;
     }
 
     &__store-button{
-        min-height: 28px;
-        min-width: 118px;
-        padding-inline: 10px 9px;
-        border-radius: 2px;
+        min-height: 32px;
+        min-width: 132px;
+        padding-inline: 12px 10px;
+        border-radius: 4px;
         background-color: v.$color-red;
         color: v.$color-white;
-        font-size: 10px;
-        font-weight: 500;
+        font-size: 12px;
+        font-weight: 700;
         letter-spacing: 0.02em;
         justify-content: space-between;
         transition: background-color 0.2s ease;
@@ -114,8 +128,8 @@
     }
 
     &__store-button-icon{
-        width: 6px;
-        height: 6px;
+        width: 7px;
+        height: 7px;
         border-top: 1px solid v.$color-white;
         border-right: 1px solid v.$color-white;
         transform: translateY(0.5px) rotate(45deg);
@@ -123,15 +137,18 @@
 
     &__nav-list{
         display: grid;
-        gap: 12px;
+        gap: 0;
+        justify-items: end;
     }
 
     &__nav-link{
+        display: block;
+        padding-block: 10px;
         color: inherit;
         text-decoration: none;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 1;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.05em;
         transition: opacity 0.2s ease;
 
         &:hover{
@@ -139,76 +156,73 @@
         }
     }
 
-    @include m.mq-up{
-        padding-block: 28px 44px;
+    @media (max-width: 768px){
+        padding-block: 24px 40px;
 
         &__inner{
-            grid-template-columns: auto minmax(0, 1fr);
-            align-items: start;
-            column-gap: 52px;
-            row-gap: 24px;
-            min-height: 230px;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 20px;
+            min-height: 0;
         }
 
         &__bnn{
-            grid-column: 1;
-            grid-row: 1;
+            grid-column: auto;
+            grid-row: auto;
         }
 
         &__sns{
-            grid-column: 1;
-            grid-row: 2;
+            grid-column: auto;
+            grid-row: auto;
         }
 
         &__title{
-            grid-column: 1 / -1;
-            grid-row: 1 / 3;
-            justify-self: center;
-            align-self: center;
-            margin-top: 0;
+            grid-column: auto;
+            grid-row: auto;
+            justify-self: start;
+            align-self: auto;
         }
 
         &__nav{
-            position: fixed;
-            top: 56px;
-            right: 56px;
-            justify-items: end;
-            gap: 30px;
-            z-index: 100;
+            position: static;
+            top: auto;
+            right: auto;
+            justify-items: start;
+            gap: 28px;
+            z-index: 1000;
         }
 
         &__title-logo{
-            width: min(100%, 520px);
+            width: min(100%, 420px);
         }
 
         &__store-button{
-            min-width: 132px;
-            min-height: 32px;
-            padding-inline: 12px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 700;
+            min-width: 118px;
+            min-height: 28px;
+            padding-inline: 10px 9px;
+            border-radius: 2px;
+            font-size: 10px;
+            font-weight: 500;
         }
 
         &__store-button-icon{
-            width: 7px;
-            height: 7px;
+            width: 6px;
+            height: 6px;
         }
 
         &__store-group{
-            gap: 8px;
+            gap: 6px;
         }
 
         &__nav-list{
-            justify-items: end;
-            gap: 0;
+            justify-items: start;
+            gap: 12px;
         }
 
         &__nav-link{
-            display: block;
-            padding-block: 10px;
-            font-size: 12px;
-            letter-spacing: 0.05em;
+            display: inline;
+            padding-block: 0;
+            font-size: 10px;
+            letter-spacing: 0.02em;
         }
     }
 }

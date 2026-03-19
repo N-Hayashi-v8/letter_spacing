@@ -62,7 +62,7 @@
         </div>
       </section>
 
-      <section class="l-section p-concept is-spacing-before" id="concept">
+      <section class="l-section p-concept is-spacing-after" id="concept" data-spacing-mode="after">
         <div class="p-concept__inner">
           <div class="p-concept__left">
             <p class="p-concept__en">Concept</p>
@@ -73,8 +73,8 @@
               </p>
             </div>
             <div class="p-concept__mode" role="group" aria-label="文字間表示切り替え">
-              <button class="p-concept__mode-btn is-active" type="button" data-spacing-mode="before" aria-pressed="true">Before</button>
-              <button class="p-concept__mode-btn" type="button" data-spacing-mode="after" aria-pressed="false">After</button>
+              <button class="p-concept__mode-btn" type="button" data-spacing-mode="before" aria-pressed="false">Before</button>
+              <button class="p-concept__mode-btn is-active" type="button" data-spacing-mode="after" aria-pressed="true">After</button>
             </div>
             <div class="p-concept__illust">
               <img class="p-concept__illust-image" src="img/concept.png" alt="">
@@ -137,8 +137,8 @@
           </div>
 
           <div class="p-feature__cta">
-            <button class="c-button c-button--amazon p-feature__button" type="button" aria-label="Amazonで購入"></button>
-            <button class="c-button c-button--bnn p-feature__button" type="button" aria-label="BNNで購入"></button>
+            <a class="c-button c-button--amazon p-feature__button" href="#" target="_blank" rel="noopener" aria-label="Amazonで購入"></a>
+            <a class="c-button c-button--bnn p-feature__button" href="#" target="_blank" rel="noopener" aria-label="BNNオンラインストアで購入"></a>
           </div>
 
         </div>
@@ -267,7 +267,7 @@
                 <dt>6-1</dt>
                 <dd>和欧混植とは</dd>
                 <dt>6-2</dt>
-                <dd>最適な文字サイズとスペースライン</dd>
+                <dd>最適な文字サイズとベースライン</dd>
                 <dt>6-3</dt>
                 <dd>既存フォントの観察</dd>
                 <dt>6-4</dt>
@@ -360,8 +360,8 @@
             </p>
           </div>
           <div class="p-cover__cta">
-            <button class="c-button c-button--amazon p-cover__button" type="button" aria-label="Amazonで購入"></button>
-            <button class="c-button c-button--bnn p-cover__button" type="button" aria-label="BNNで購入"></button>
+            <a class="c-button c-button--amazon p-cover__button" href="#" rel="noopener" target="_blank" aria-label="Amazonで購入"></a>
+            <a class="c-button c-button--bnn p-cover__button" href="#" rel="noopener" target="_blank" aria-label="BNNで購入"></a>
           </div>
         </div>
       </section>
@@ -387,5 +387,7 @@
         </div>
       </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

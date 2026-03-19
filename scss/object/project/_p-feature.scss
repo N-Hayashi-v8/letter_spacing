@@ -1,5 +1,4 @@
 @use "../../foundation/variables" as v;
-@use "../../foundation/mixin" as m;
 
 .p-feature{
     border-top: 0;
@@ -11,18 +10,26 @@
         width: 100%;
         max-width: 1440px;
         margin-inline: auto;
-        padding-inline: 32px;
+        padding-left: 120px;
+        padding-right: 240px;
         box-sizing: border-box;
     }
 
     &__section{
         position: relative;
-        display: grid;
+        display: flex;
+        align-items: start;
         gap: 32px;
+    }
+
+    &__section + &__section{
+        margin-top: 80px;
     }
 
     &__left{
         position: relative;
+        width: calc(50% + 164px);
+        margin-left: -120px;
     }
 
     &__left::after{
@@ -44,6 +51,9 @@
     &__right{
         display: grid;
         align-content: start;
+        width: calc(50% - 64px);
+        padding: 48px 0 0 80px;
+        box-sizing: border-box;
     }
 
     &__title{
@@ -104,45 +114,67 @@
     }
 
     &__cta{
+        position: relative;
+        z-index: 0;
         display: grid;
-        gap: 12px;
-        justify-items: start;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        justify-content: center;
+        padding-block: 72px;
+    }
+
+    &__cta::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: calc(50% - 50vw);
+        bottom: 0;
+        left: calc(50% - 50vw);
+        background-color: v.$color-red;
+        z-index: -1;
     }
 
     &__button{
-        width: min(100%, 220px);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        width: min(100%, 540px);
+        min-height: 120px;
+        padding-inline: 20px;
+        border-radius: 10px;
+        background-image: none;
+        color: v.$color-white;
+        letter-spacing: 0.02em;
     }
 
-    @include m.mq-up{
-        &__inner {
-            padding-left: 120px;
-            padding-right: 240px;
-        }
+    &__button::before{
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
 
-        &__section{
-            display: flex;
-            align-items: start;
-        }
+    &__button::after{
+        content: attr(aria-label);
+        font-size: clamp(24px, 2.2vw, 39px);
+        font-weight: 700;
+        line-height: 1.25;
+        white-space: nowrap;
+    }
 
-        &__section + &__section{
-            margin-top: 80px;
-        }
+    &__button.c-button--amazon::before{
+        width: 30px;
+        height: 34px;
+        background-image: url("../img/logo_amazon.svg");
+    }
 
-        &__left{
-            width: calc(50% + 164px);
-            margin-left: -120px;
-        }
-
-        &__right{
-            width: calc(50% - 64px);
-            padding: 48px 0 0 80px;
-            box-sizing: border-box;
-        }
-
-        &__cta{
-            grid-template-columns: repeat(2, auto);
-            gap: 16px;
-        }
+    &__button.c-button--bnn::before{
+        width: 64px;
+        height: 30px;
+        background-image: url("../img/logo_bnn.svg");
     }
 
     @media (max-width: 768px){
@@ -150,6 +182,16 @@
 
         &__inner{
             gap: 56px;
+            padding-inline: 32px;
+        }
+
+        &__section{
+            display: grid;
+            align-items: stretch;
+        }
+
+        &__section + &__section{
+            margin-top: 0;
         }
 
         &__left{
@@ -182,6 +224,11 @@
             font-size: 12px;
         }
 
+        &__right{
+            width: auto;
+            padding: 0;
+        }
+
         &__illust{
             width: min(100%, 260px);
             margin-top: 36px;
@@ -189,6 +236,32 @@
 
         &__modal-title{
             font-size: 18px;
+        }
+
+        &__cta{
+            grid-template-columns: minmax(0, 1fr);
+            gap: 16px;
+            padding-block: 32px;
+        }
+
+        &__button{
+            width: min(100%, 340px);
+            min-height: 68px;
+            border-radius: 8px;
+        }
+
+        &__button::after{
+            font-size: 15px;
+        }
+
+        &__button.c-button--amazon::before{
+            width: 14px;
+            height: 16px;
+        }
+
+        &__button.c-button--bnn::before{
+            width: 45px;
+            height: 20px;
         }
     }
 }

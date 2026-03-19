@@ -1,5 +1,4 @@
 @use "../../foundation/variables" as v;
-@use "../../foundation/mixin" as m;
 
 .c-button{
     display: inline-flex;
@@ -25,8 +24,8 @@
 
     &--amazon,
     &--bnn{
-        min-height: 40px;
-        min-width: 148px;
+        min-height: 44px;
+        min-width: 168px;
         padding-inline: 20px;
         background-color: v.$color-black;
         background-repeat: no-repeat;
@@ -57,11 +56,11 @@
         }
     }
 
-    @include m.mq-up{
+    @media (max-width: 768px){
         &--amazon,
         &--bnn{
-            min-height: 44px;
-            min-width: 168px;
+            min-height: 40px;
+            min-width: 148px;
         }
     }
 }
