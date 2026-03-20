@@ -128,11 +128,31 @@
     }
 
     &__store-button-icon{
-        width: 7px;
-        height: 7px;
-        border-top: 1px solid v.$color-white;
-        border-right: 1px solid v.$color-white;
-        transform: translateY(0.5px) rotate(45deg);
+        display: block;
+        flex-shrink: 0;
+        background-color: v.$color-white;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-mode: alpha;
+        mask-mode: alpha;
+    }
+
+    &__store-button-icon--amazon{
+        width: 10px;
+        height: 11px;
+        -webkit-mask: url("../img/logo_amazon.svg") center / contain no-repeat;
+        mask: url("../img/logo_amazon.svg") center / contain no-repeat;
+    }
+
+    &__store-button-icon--bnn{
+        width: 24px;
+        height: 13px;
+        -webkit-mask: url("../img/logo_bnn.svg") center / contain no-repeat;
+        mask: url("../img/logo_bnn.svg") center / contain no-repeat;
     }
 
     &__nav-list{
@@ -205,8 +225,17 @@
         }
 
         &__store-button-icon{
-            width: 6px;
-            height: 6px;
+            transform: none;
+        }
+
+        &__store-button-icon--amazon{
+            width: 8px;
+            height: 9px;
+        }
+
+        &__store-button-icon--bnn{
+            width: 20px;
+            height: 11px;
         }
 
         &__store-group{

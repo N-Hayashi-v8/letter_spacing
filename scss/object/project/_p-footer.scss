@@ -95,6 +95,10 @@
         word-break: normal;
         overflow-wrap: normal;
         white-space: nowrap;
+
+        &:hover{
+            color: v.$color-red;
+        }
     }
 
     @media (max-width: 768px){

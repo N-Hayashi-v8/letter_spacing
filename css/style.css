@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Tazugane Gothic StdN", "Zen Kaku Gothic New", sans-serif;
   color: #000000;
@@ -224,11 +225,29 @@ body {
   line-height: 1;
 }
 .p-header__store-button-icon {
-  width: 7px;
-  height: 7px;
-  border-top: 1px solid #ffffff;
-  border-right: 1px solid #ffffff;
-  transform: translateY(0.5px) rotate(45deg);
+  display: block;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+.p-header__store-button-icon--amazon {
+  width: 10px;
+  height: 11px;
+  -webkit-mask: url("../img/logo_amazon.svg") center/contain no-repeat;
+  mask: url("../img/logo_amazon.svg") center/contain no-repeat;
+}
+.p-header__store-button-icon--bnn {
+  width: 24px;
+  height: 13px;
+  -webkit-mask: url("../img/logo_bnn.svg") center/contain no-repeat;
+  mask: url("../img/logo_bnn.svg") center/contain no-repeat;
 }
 .p-header__nav-list {
   display: grid;
@@ -291,8 +310,15 @@ body {
     font-weight: 500;
   }
   .p-header__store-button-icon {
-    width: 6px;
-    height: 6px;
+    transform: none;
+  }
+  .p-header__store-button-icon--amazon {
+    width: 8px;
+    height: 9px;
+  }
+  .p-header__store-button-icon--bnn {
+    width: 20px;
+    height: 11px;
   }
   .p-header__store-group {
     gap: 6px;
@@ -824,16 +850,81 @@ body {
   margin-left: auto;
 }
 .p-feature__modal {
-  padding: 20px;
-  border: 1px solid #dddddd;
+  margin-inline: calc(50% - 50vw);
+  padding-block: 56px 52px;
+  position: relative;
+  overflow: visible;
+}
+.p-feature__modal-view {
+  position: relative;
+  z-index: 1;
+  margin-top: 56px;
+  overflow: hidden;
+}
+.p-feature__modal-track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation: none;
+  will-change: transform;
+}
+.p-feature__modal-track[data-modal-ready=true] {
+  animation: p-feature-modal-scroll 180s linear infinite;
+}
+.p-feature__modal-list {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  gap: 24px;
+  padding-inline: 24px;
+}
+.p-feature__modal-item {
+  width: clamp(260px, 24vw, 460px);
+  flex-shrink: 0;
   background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+.p-feature__modal-image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .p-feature__modal-title {
   margin: 0;
-  font-size: 20px;
+  color: #e42e1e;
+  font-size: 32px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
   text-align: center;
+}
+.p-feature__modal-accent {
+  display: inline-flex;
+  white-space: nowrap;
+}
+.p-feature__modal-accent-char {
+  position: relative;
+  display: inline-block;
+}
+.p-feature__modal-accent-char::before {
+  content: "・";
+  position: absolute;
+  left: 50%;
+  top: -0.75em;
+  transform: translateX(-50%);
+  font-size: 0.75em;
+  line-height: 1;
+  pointer-events: none;
+}
+.p-feature__modal-illust {
+  position: absolute;
+  left: 120px;
+  bottom: -28px;
+  z-index: 3;
+  display: block;
+  width: 70px;
+  height: auto;
+  pointer-events: none;
 }
 .p-feature__cta {
   position: relative;
@@ -942,6 +1033,27 @@ body {
   .p-feature__modal-title {
     font-size: 18px;
   }
+  .p-feature__modal {
+    padding-block: 44px 28px;
+  }
+  .p-feature__modal-view {
+    margin-top: 34px;
+  }
+  .p-feature__modal-track[data-modal-ready=true] {
+    animation-duration: 140s;
+  }
+  .p-feature__modal-list {
+    gap: 12px;
+    padding-inline: 12px;
+  }
+  .p-feature__modal-item {
+    width: min(84vw, 320px);
+  }
+  .p-feature__modal-illust {
+    left: 10px;
+    bottom: -18px;
+    width: min(22vw, 92px);
+  }
   .p-feature__cta {
     grid-template-columns: minmax(0, 1fr);
     gap: 16px;
@@ -965,6 +1077,19 @@ body {
   }
 }
 
+@keyframes p-feature-modal-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p-feature__modal-track[data-modal-ready=true] {
+    animation: none;
+  }
+}
 .p-footer {
   position: relative;
   z-index: 1;
@@ -1048,6 +1173,9 @@ body {
   word-break: normal;
   overflow-wrap: normal;
   white-space: nowrap;
+}
+.p-footer__contact-link:hover {
+  color: #e42e1e;
 }
 @media (max-width: 768px) {
   .p-footer {
