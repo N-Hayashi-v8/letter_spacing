@@ -100,7 +100,6 @@
     }
 
     &__modal{
-        margin-inline: calc(50% - 50vw);
         padding-block: 56px 52px;
         position: relative;
         overflow: visible;
@@ -193,7 +192,9 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px;
+        justify-items: center;
         justify-content: center;
+        margin-top: 40px;
         padding-block: 72px;
     }
 
@@ -201,9 +202,9 @@
         content: "";
         position: absolute;
         top: 0;
-        right: calc(50% - 50vw);
+        right: 0;
         bottom: 0;
-        left: calc(50% - 50vw);
+        left: 0;
         background-color: v.$color-red;
         z-index: -1;
     }
@@ -233,7 +234,7 @@
 
     &__button::after{
         content: attr(aria-label);
-        font-size: clamp(24px, 2.2vw, 39px);
+        font-size: clamp(24px, 2.2vw, 28px);
         font-weight: 700;
         line-height: 1.25;
         white-space: nowrap;
@@ -342,6 +343,7 @@
         &__cta{
             grid-template-columns: minmax(0, 1fr);
             gap: 16px;
+            margin-top: 24px;
             padding-block: 32px;
         }
 
