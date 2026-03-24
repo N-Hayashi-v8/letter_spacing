@@ -1,6 +1,9 @@
 @use "../../foundation/variables" as v;
 
 .p-author{
+
+    border-top: 0;
+
     &__inner{
         display: grid;
         gap: 0;

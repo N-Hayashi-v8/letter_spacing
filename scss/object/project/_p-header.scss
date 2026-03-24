@@ -220,13 +220,15 @@
         }
 
         &:hover,
-        &:focus-visible{
+        &:focus-visible,
+        &.is-current{
             opacity: 1;
             color: v.$color-red;
         }
 
         &:hover::after,
-        &:focus-visible::after{
+        &:focus-visible::after,
+        &.is-current::after{
             width: 48px;
             background-color: v.$color-red;
         }

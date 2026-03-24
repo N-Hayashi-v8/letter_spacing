@@ -20,7 +20,19 @@
         display: flex;
         align-items: start;
         gap: 32px;
+
+        --p-feature-zoom-color: #{v.$color-red};
+
+        &:nth-child(2){
+            --p-feature-zoom-color: #{v.$color-green};
+        }
+
+        &:nth-child(3){
+            --p-feature-zoom-color: #{v.$color-blue};
+        }
     }
+
+    
 
     &__section + &__section{
         margin-top: 80px;
@@ -32,14 +44,36 @@
         margin-left: -120px;
     }
 
-    &__left::after{
-        content: "";
-        width: 56px;
-        height: 56px;
-        background-color: v.$color-red;
-        position: absolute;
-        right: 0;
-        bottom: 0;
+    &__zoom-trigger{
+        display: block;
+        width: 100%;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        cursor: zoom-in;
+        position: relative;
+
+        &::before{
+            content: "";
+            width: 56px;
+            height: 56px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            background: var(--p-feature-zoom-color) url("../img/zoom.svg") center center no-repeat;
+            background-size: 24px 24px;
+            transform-origin: right bottom;
+            transition: width 375ms cubic-bezier(.19, 1, .22, 1), height 375ms cubic-bezier(.19, 1, .22, 1);
+        }
+    }
+
+    @media (min-width: 769px){
+        &__zoom-trigger:hover::before,
+        &__zoom-trigger:focus-visible::before{
+            width: 72px;
+            height: 72px;
+        }
     }
 
     &__image{
@@ -186,6 +220,97 @@
         pointer-events: none;
     }
 
+    &__zoom-modal{
+        --p-feature-zoom-ui: #{v.$color-red};
+        --p-feature-zoom-bg: rgba(253,237,237,0.96);
+        position: fixed;
+        inset: 0;
+        z-index: 220;
+        display: grid;
+        place-items: center;
+        padding: 40px 24px;
+        box-sizing: border-box;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 240ms ease;
+    }
+
+    &__zoom-modal.is-open{
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &__zoom-modal.is-color-red{
+        --p-feature-zoom-ui: #{v.$color-red};
+        --p-feature-zoom-bg: rgba(253,237,237,0.96)
+    }
+
+    &__zoom-modal.is-color-green{
+        --p-feature-zoom-ui: #{v.$color-green};
+        --p-feature-zoom-bg: rgba(237,248,240,0.96);
+    }
+
+    &__zoom-modal.is-color-blue{
+        --p-feature-zoom-ui: #{v.$color-blue};
+        --p-feature-zoom-bg: rgba(236, 244, 250, 0.96);
+    }
+
+    &__zoom-backdrop{
+        position: absolute;
+        inset: 0;
+        background-color: var(--p-feature-zoom-bg);
+    }
+
+    &__zoom-body{
+        position: relative;
+        z-index: 1;
+        width: min(100%, 1200px);
+    }
+
+    &__zoom-image{
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: calc(100vh - 120px);
+        object-fit: contain;
+        margin-inline: auto;
+    }
+
+    &__zoom-close{
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        z-index: 2;
+        width: 24px;
+        height: 24px;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        cursor: pointer;
+        transform: rotate(45deg);
+
+        &::before,
+        &::after{
+            content: "";
+            position: absolute;
+            background-color: var(--p-feature-zoom-ui);
+        }
+        
+        &::before{
+            width: 100%;
+            height: 3px;
+            left: 0;
+            top: calc(50% - 1.5px);
+        }
+
+        &::after{
+            width: 3px;
+            height: 100%;
+            left: calc(50% - 1.5px);
+            top: 0;
+        }
+    }
+
     &__cta{
         position: relative;
         z-index: 0;
@@ -274,9 +399,10 @@
             margin-left: -32px;
         }
 
-        &__left::after{
+        &__zoom-trigger::before{
             width: 32px;
             height: 32px;
+            background-size: 16px 16px;
         }
 
         &__title{
@@ -366,6 +492,21 @@
             width: 45px;
             height: 20px;
         }
+
+        &__zoom-modal{
+            padding: 24px 12px;
+        }
+
+        &__zoom-close{
+            top: 14px;
+            right: 14px;
+            width: 20px;
+            height: 20px;
+        }
+
+        &__zoom-image{
+            max-height: calc(100vh - 88px);
+        }
     }
 }
 
@@ -382,5 +523,9 @@
 @media (prefers-reduced-motion: reduce){
     .p-feature__modal-track[data-modal-ready="true"]{
         animation: none;
+    }
+    .p-feature__zoom-trigger::before,
+    .p-feature__zoom-modal{
+        transition: none;
     }
 }

@@ -95,7 +95,13 @@
         <div class="p-feature__inner">
           <div class="p-feature__section">
             <div class="p-feature__left">
-              <img class="p-feature__image" src="img/img_feature_01 1.png" alt="">
+              <button
+                class="p-feature__zoom-trigger"
+                type="button"
+                data-feature-zoom-color="red"
+                aria-label="第1部の画像を拡大表示">
+                <img class="p-feature__image" src="img/img_feature_01.png" alt="">
+              </button>
             </div>
             <div class="p-feature__right">
               <h2 class="p-feature__title"><span class="p-feature__title-label">第1部</span>基本を学ぶ</h2>
@@ -104,12 +110,18 @@
                 基礎知識や考え方
               </h3>
               <p class="p-feature__text">レタースペーシングとは？なぜスペーシングが重要なのかを理解し、具体的にどのような視点で文字間を見えていけばいいのかを解説します。</p>
-              <img class="p-feature__illust" src="img/img_feature_illust_01 1.png" alt="">
+              <img class="p-feature__illust" src="img/img_feature_illust_01.png" alt="">
             </div>
           </div>
           <div class="p-feature__section">
             <div class="p-feature__left">
-              <img class="p-feature__image" src="img/img_feature_02 1.png" alt="">
+              <button
+                class="p-feature__zoom-trigger"
+                type="button"
+                data-feature-zoom-color="green"
+                aria-label="第2部の画像を拡大表示">
+                <img class="p-feature__image" src="img/img_feature_02.png" alt="">
+              </button>
             </div>
             <div class="p-feature__right">
               <h2 class="p-feature__title"><span class="p-feature__title-label">第2部</span>知識を深める</h2>
@@ -118,12 +130,18 @@
                 それぞれの特徴
               </h3>
               <p class="p-feature__text">言語ごとのスペーシングに対する特徴が学べます。欧文の歴史、和文の横組、和文と欧文を混ぜたときの留意点などを解説します。</p>
-              <img class="p-feature__illust" src="img/img_feature_illust_02 1.png" alt="">
+              <img class="p-feature__illust" src="img/img_feature_illust_02.png" alt="">
             </div>
           </div>
           <div class="p-feature__section">
             <div class="p-feature__left">
-              <img class="p-feature__image" src="img/img_feature_03 1.png" alt="">
+              <button
+                class="p-feature__zoom-trigger"
+                type="button"
+                data-feature-zoom-color="blue"
+                aria-label="第3部の画像を拡大表示">
+                <img class="p-feature__image" src="img/img_feature_03.png" alt="">
+              </button>
             </div>
             <div class="p-feature__right">
               <h2 class="p-feature__title"><span class="p-feature__title-label">第3部</span>実感する</h2>
@@ -132,7 +150,7 @@
                 スペーシング練習問題
               </h3>
               <p class="p-feature__text">有名なロゴタイプのスペーシングを考察します。最後に練習問題を体験し、これまでに本書で学んだ知識を実践で振り返ります。</p>
-              <img class="p-feature__illust" src="img/img_feature_illust_03 1.png" alt="">
+              <img class="p-feature__illust" src="img/img_feature_illust_03.png" alt="">
             </div>
           </div>
 
@@ -396,6 +414,15 @@
           </div>
         </div>
       </section>
+
+      <div class="p-feature__zoom-modal" aria-hidden="true">
+        <div class="p-feature__zoom-backdrop" data-feature-zoom-close></div>
+        <button class="p-feature__zoom-close" type="button" aria-label="拡大画像を閉じる" data-feature-zoom-close></button>
+        <div class="p-feature__zoom-body">
+          <img class="p-feature__zoom-image" src="" alt="">
+        </div>
+      </div>
+
     </main>
 
     <footer class="l-section p-footer" id="footer">

@@ -1,4 +1,9 @@
 .p-page{
+
+    &.is-noscroll{
+        overflow: hidden;
+    }
+    
     &--letter-spacing{
         overflow-x: hidden;
     }
