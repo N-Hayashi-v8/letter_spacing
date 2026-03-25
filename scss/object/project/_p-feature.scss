@@ -346,15 +346,31 @@
         background-image: none;
         color: v.$color-white;
         letter-spacing: 0.02em;
+
+        :hover{
+            background-color: #fff;
+            opacity: 1;
+            color: #e42e1e;
+            transition: 0.2s;
+        }
     }
 
-    &__button::before{
-        content: "";
-        display: block;
-        flex-shrink: 0;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
+    &__button{
+        &:hover{
+            &::before{
+                background-color: #e42e1e;
+            }
+        }
+
+        ::before{
+            content: "";
+            display: block;
+            flex-shrink: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            background-color: #fff;
+        }
     }
 
     &__button::after{
@@ -368,14 +384,43 @@
     &__button.c-button--amazon::before{
         width: 30px;
         height: 34px;
-        background-image: url("../img/logo_amazon.svg");
+        mask: url(../../../img/logo_amazon.svg) center / contain no-repeat;
     }
 
     &__button.c-button--bnn::before{
         width: 64px;
         height: 30px;
-        background-image: url("../img/logo_bnn.svg");
+        mask-image: url(../../../img/logo_bnn.svg) center / contain no-repeat;
     }
+
+    // &__button::before{
+    //     content: "";
+    //     display: block;
+    //     flex-shrink: 0;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     background-size: contain;
+    // }
+
+    // &__button::after{
+    //     content: attr(aria-label);
+    //     font-size: clamp(24px, 2.2vw, 28px);
+    //     font-weight: 700;
+    //     line-height: 1.25;
+    //     white-space: nowrap;
+    // }
+
+    // &__button.c-button--amazon::before{
+    //     width: 30px;
+    //     height: 34px;
+    //     background-image: url("../img/logo_amazon.svg");
+    // }
+
+    // &__button.c-button--bnn::before{
+    //     width: 64px;
+    //     height: 30px;
+    //     background-image: url("../img/logo_bnn.svg");
+    // }
 
     @media (max-width: 768px){
         padding-top: 64px;

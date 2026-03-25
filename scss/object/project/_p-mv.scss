@@ -4,11 +4,27 @@
 
     &__inner{
         width: 100%;
+
+        animation-name: blur;
+        animation-timing-function: ease-in;
+        animation-duration: 0.4s;
+        animation-fill-mode: forwards;
+        filter: blur(10px);
+
     }
 
     &__image{
         display: block;
         width: 100%;
         height: auto;
+    }
+}
+
+@keyframes blur{
+    0%{
+        filter: blur(10px);
+    }
+    100%{
+        filter: blur(0px);
     }
 }
